@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krin Tech | Beyond Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oxanium:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="image/KRIN TECH LOGO favicon.png" type="image/x-icon">
+</head>
+<body>
+
+    <canvas id="tech-canvas"></canvas>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo"><img src="image/KRIN TECH LOGO.png" alt="Krin Tech Logo"></a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#home" data-translate="nav.home">Home</a></li>
+                    <li><a href="#services" data-translate="nav.solutions">Services</a></li>
+                    <li><a href="#about" data-translate="nav.about">About</a></li>
+                    <li><a href="#contact" data-translate="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-controls">
+                <button id="theme-toggle" class="control-btn" aria-label="Theme"><i class="fas fa-sun"></i></button>
+
+                <div class="lang-dropdown">
+                    <button class="control-btn" id="lang-btn">EN <i class="fas fa-chevron-down"></i></button>
+                    <div class="lang-menu">
+                        <a href="#" data-lang="en">🇺🇸 EN</a>
+                        <a href="#" data-lang="pt">🇧🇷 PT</a>
+                        <a href="#" data-lang="es">🇪🇸 ES</a>
+                        <a href="#" data-lang="fr">🇫🇷 FR</a>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/5535997209703" target="_blank" class="btn glow-blue nav-cta" data-translate="nav.cta">WhatsApp Me</a>
+            </div>
+            
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 data-translate="hero.title">BEYOND CODE.</h1>
+            <h2><span data-translate="hero.subtitle">DEFINING THE</span> <span class="text-gradient" data-translate="hero.highlight">FUTURE</span>.</h2>
+            <p class="hero-subtitle" data-translate="hero.desc">
+                Bridging the gap between High-End Software and Physical Infrastructure. We provide Full-Stack Development, Farm Automation, and Technical Support.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="https://wa.me/5535997209703" target="_blank" class="btn glow-blue" data-translate="hero.btn1">Start Project</a>
+                <a href="#services" class="btn glow-purple" data-translate="hero.btn2">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-pad">
+        <div class="container">
+            <div class="section-header">
+                <h3 data-translate="solutions.title">OUR EXPERTISE</h3>
+                <div class="line-decorator"></div>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card glass-effect scroll-reveal">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <h4 data-translate="solutions.c1.title">Web Development</h4>
+                    <p data-translate="solutions.c1.desc">High-performance websites and applications using React.js, Next.js, and Modern CSS. We build scalable digital products.</p>
+                </div>
+
+                <div class="card glass-effect scroll-reveal">
+                    <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                    <h4 data-translate="solutions.c2.title">Network & Connectivity</h4>
+                    <p data-translate="solutions.c2.desc">Complete setup of Farm/Office Wi-Fi, VoIP systems, and Starlink integration for remote areas.</p>
+                </div>
+
+                <div class="card glass-effect scroll-reveal">
+                    <div class="card-icon"><i class="fas fa-video"></i></div>
+                    <h4 data-translate="solutions.c3.title">Security Systems</h4>
+                    <p data-translate="solutions.c3.desc">Installation and configuration of CCTV, IP Cameras, and remote monitoring systems for property safety.</p>
+                </div>
+
+                <div class="card glass-effect scroll-reveal">
+                    <div class="card-icon"><i class="fas fa-solar-panel"></i></div>
+                    <h4 data-translate="solutions.c4.title">Solar Energy Tech</h4>
+                    <p data-translate="solutions.c4.desc">Technical support, maintenance, and setup of solar panel systems and energy monitoring dashboards.</p>
+                </div>
+
+                <div class="card glass-effect scroll-reveal">
+                    <div class="card-icon"><i class="fas fa-robot"></i></div>
+                    <h4 data-translate="solutions.c5.title">Process Automation</h4>
+                    <p data-translate="solutions.c5.desc">Custom scripts and bots to automate daily tasks, data entry, and job applications.</p>
+                </div>
+
+                <div class="card glass-effect scroll-reveal">
+                    <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                    <h4 data-translate="solutions.c6.title">Management Systems</h4>
+                    <p data-translate="solutions.c6.desc">Implementation and support for ERPs and inventory control systems for Farms and Businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="innovation-section section-pad">
+        <div class="innovation-bg"></div>
+        <div class="container innovation-content scroll-reveal">
+            <h3><span data-translate="innov.title1">THE HYBRID</span> <span class="highlight" data-translate="innov.title2">WORKER</span></h3>
+            <p data-translate="innov.desc">Krin Tech is not just a software house. We are hands-on problem solvers. From coding complex algorithms to fixing physical hardware on-site, we deliver complete technical solutions.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="container cta-container scroll-reveal">
+            <h2><span data-translate="cta.title">Have a project or problem?</span> <span class="text-gradient" data-translate="cta.highlight">Let's Fix It.</span></h2>
+            <p data-translate="cta.desc">Software or Hardware, we are ready.</p>
+            <a href="https://wa.me/5535997209703" target="_blank" class="btn glow-blue" style="font-size: 1.2rem;" data-translate="cta.btn">Contact via WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col brand-col">
+                    <a href="#" class="logo footer-logo">
+                        <img src="image/KRIN TECH LOGO.png" alt="Krin Tech Logo">
+                    </a>
+                    <p class="footer-desc" data-translate="hero.desc">
+                        Bridging the gap between High-End Software and Physical Infrastructure.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/in/yancue" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/YanzinhoCaue" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://wa.me/5535997209703" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#home" data-translate="nav.home">Home</a></li>
+                        <li><a href="#about" data-translate="nav.about">About Us</a></li>
+                        <li><a href="#services" data-translate="nav.solutions">Services</a></li>
+                        <li><a href="#contact" data-translate="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Solutions</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">Farm Automation</a></li>
+                        <li><a href="#services">Security Systems</a></li>
+                        <li><a href="#services">Solar Tech</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4 class="footer-title">Get in Touch</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Elói Mendes, MG - Brazil</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@krintech.com</span>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/5535997209703" target="_blank" class="whatsapp-link">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>+55 (35) 99720-9703</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Krin Tech Solutions. Developed by <span class="highlight">Yan Cauê</span>.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
