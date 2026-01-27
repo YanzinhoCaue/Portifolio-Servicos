@@ -214,10 +214,392 @@ h1, h2, h3, h4, .logo, .btn, .footer-title { font-family: var(--font-heading); t
 .card { 
     padding: 50px 40px; border-radius: 12px; transition: var(--transition); position: relative; overflow: hidden; 
 }
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 229, 255, 0.15) 50%, transparent 100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card:nth-child(1)::before { animation: card-glow 18s ease-in-out 0s infinite; }
+.card:nth-child(2)::before { animation: card-glow 18s ease-in-out 2s infinite; }
+.card:nth-child(3)::before { animation: card-glow 18s ease-in-out 4s infinite; }
+.card:nth-child(4)::before { animation: card-glow 18s ease-in-out 6s infinite; }
+.card:nth-child(5)::before { animation: card-glow 18s ease-in-out 8s infinite; }
+.card:nth-child(6)::before { animation: card-glow 18s ease-in-out 10s infinite; }
+.card:nth-child(7)::before { animation: card-glow 18s ease-in-out 12s infinite; }
+.card:nth-child(8)::before { animation: card-glow 18s ease-in-out 14s infinite; }
+.card:nth-child(9)::before { animation: card-glow 18s ease-in-out 16s infinite; }
+.card:nth-child(n+10)::before { animation: card-glow 18s ease-in-out 18s infinite; }
+
+@keyframes card-glow {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 .card:hover { transform: translateY(-10px); border-color: var(--neon-blue); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
 .card-icon { font-size: 3rem; color: var(--neon-blue); margin-bottom: 25px; }
 .card h4 { font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main); }
 .card p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
+
+/* PROJECTS CAROUSEL */
+.carousel-container { 
+    position: relative; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    padding: 0 60px;
+}
+
+.carousel-wrapper { 
+    overflow: hidden; 
+    border-radius: 20px;
+}
+
+.carousel-slides { 
+    display: flex; 
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide { 
+    min-width: 100%; 
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.carousel-slide.active { 
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.project-showcase { 
+    display: grid; 
+    grid-template-columns: 1.4fr 1fr; 
+    gap: 50px; 
+    padding: 50px; 
+    border-radius: 20px;
+    align-items: center;
+}
+
+/* FRAME DO SITE */
+.project-frame { 
+    width: 100%; 
+    background: var(--bg-secondary); 
+    border-radius: 12px; 
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+}
+
+.frame-header { 
+    background: var(--bg-secondary); 
+    padding: 15px 20px; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.frame-dots { 
+    display: flex; 
+    gap: 8px;
+}
+
+.frame-dots span { 
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%; 
+    background: var(--text-muted);
+    opacity: 0.3;
+}
+
+.frame-dots span:nth-child(1) { background: #ff5f57; opacity: 0.8; }
+.frame-dots span:nth-child(2) { background: #ffbd2e; opacity: 0.8; }
+.frame-dots span:nth-child(3) { background: #28ca42; opacity: 0.8; }
+
+.frame-url { 
+    flex: 1; 
+    text-align: center; 
+    background: rgba(255, 255, 255, 0.05); 
+    padding: 8px 20px; 
+    border-radius: 8px;
+    color: var(--text-muted); 
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+}
+
+.frame-external { 
+    width: 36px; 
+    height: 36px; 
+    background: rgba(0, 229, 255, 0.1); 
+    border-radius: 8px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    color: var(--neon-blue);
+    transition: all 0.3s ease;
+}
+
+.frame-external:hover {
+    background: var(--neon-blue);
+    color: #000;
+    transform: scale(1.1);
+}
+
+.frame-content { 
+    width: 100%; 
+    height: 600px; 
+    background: #1a1a1a;
+    position: relative;
+}
+
+.frame-content iframe { 
+    width: 100%; 
+    height: 100%; 
+    border: none;
+    display: block;
+}
+
+/* INFO DO PROJETO */
+.project-info { 
+    padding: 20px;
+}
+
+.project-info h4 { 
+    font-size: 2.5rem; 
+    margin-bottom: 25px; 
+    color: var(--text-main); 
+    letter-spacing: 2px;
+}
+
+/* SERVICES SHOWCASE */
+.services-showcase {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px;
+}
+
+.service-item {
+    background: rgba(0, 229, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 35px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-main);
+    transform: scaleY(0);
+    transition: transform 0.4s ease;
+}
+
+.service-item:hover {
+    background: rgba(0, 229, 255, 0.08);
+    border-color: var(--neon-blue);
+    transform: translateX(10px);
+}
+
+.service-item:hover::before {
+    transform: scaleY(1);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--neon-blue);
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+
+.service-item:hover .service-icon {
+    color: var(--neon-purple);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-item h5 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.service-item p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.project-tags { 
+    display: flex; 
+    gap: 12px; 
+    flex-wrap: wrap; 
+    margin-bottom: 25px; 
+}
+
+.tag { 
+    background: rgba(0, 229, 255, 0.1); 
+    color: var(--neon-blue); 
+    padding: 8px 18px; 
+    border-radius: 25px; 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: var(--neon-blue);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.project-info p { 
+    color: var(--text-muted); 
+    line-height: 1.8; 
+    margin-bottom: 35px; 
+    font-size: 1.1rem;
+}
+
+.project-info .btn { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 12px;
+}
+
+.project-info .btn i {
+    transition: transform 0.3s ease;
+}
+
+.project-info .btn:hover i {
+    transform: translateX(5px);
+}
+
+/* CONTROLES DO CARROSSEL */
+.carousel-btn { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    width: 50px; 
+    height: 50px; 
+    background: var(--glass-bg); 
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); 
+    border-radius: 50%;
+    color: var(--text-main); 
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover { 
+    background: var(--neon-blue); 
+    border-color: var(--neon-blue);
+    color: #000;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
+.carousel-btn.prev { left: 0; }
+.carousel-btn.next { right: 0; }
+
+/* INDICADORES */
+.carousel-indicators { 
+    display: flex; 
+    justify-content: center; 
+    gap: 12px; 
+    margin-top: 40px;
+}
+
+.indicator { 
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%; 
+    background: var(--glass-border); 
+    border: 2px solid var(--glass-border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.indicator:hover {
+    background: rgba(0, 229, 255, 0.5);
+    border-color: var(--neon-blue);
+}
+
+.indicator.active { 
+    background: var(--neon-blue); 
+    border-color: var(--neon-blue);
+    width: 40px;
+    border-radius: 6px;
+}
+
+/* COMING SOON CARD */
+.coming-soon-card {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 600px;
+    grid-template-columns: none !important;
+    gap: 0 !important;
+}
+
+.coming-soon-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.coming-soon-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--neon-blue);
+    animation: float 3s ease-in-out infinite;
+}
+
+.coming-soon-content h4 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.coming-soon-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 400px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
 
 /* INNOVATION */
 .innovation-section { position: relative; text-align: center; background-color: var(--bg-secondary); overflow: hidden; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
@@ -359,10 +741,65 @@ footer {
     .hero-buttons { flex-direction: column; width: 100%; }
     .btn { width: 100%; }
     
+    .carousel-container { 
+        padding: 0 40px; 
+    }
+    
+    .project-showcase { 
+        grid-template-columns: 1fr; 
+        padding: 30px; 
+        gap: 30px;
+    }
+    
+    .frame-content { 
+        height: 400px; 
+    }
+    
+    .project-info h4 { 
+        font-size: 2rem; 
+    }
+    
+    .carousel-btn { 
+        width: 40px; 
+        height: 40px; 
+        font-size: 1rem;
+    }
+    
     .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
     .footer-title::after { left: 50%; transform: translateX(-50%); }
     .contact-list li { justify-content: center; }
     .footer-social { justify-content: center; }
     .footer-bottom { flex-direction: column; text-align: center; }
     .nav-controls { margin-right: 50px; }
+}
+
+@media (max-width: 480px) {
+    .carousel-container { 
+        padding: 0 30px; 
+    }
+    
+    .project-showcase { 
+        padding: 20px; 
+    }
+    
+    .frame-content { 
+        height: 300px; 
+    }
+    
+    .frame-header { 
+        padding: 10px 15px; 
+    }
+    
+    .frame-url { 
+        font-size: 0.75rem; 
+        padding: 6px 12px;
+    }
+    
+    .project-info h4 { 
+        font-size: 1.6rem; 
+    }
+    
+    .project-info p { 
+        font-size: 0.95rem; 
+    }
 }
