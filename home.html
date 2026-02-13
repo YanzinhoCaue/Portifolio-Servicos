@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krin.tech | Estrutura antes de Escala</title>
+    <meta name="description" content="A Krin.tech organiza o digital da sua empresa para gerar crescimento previsível. Estrutura antes de escala.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="image/KRIN TECH LOGO favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <canvas id="space-canvas" aria-hidden="true"></canvas>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#top" aria-label="Krin.tech">
+                <img src="image/KRIN TECH LOGO.png" alt="Krin.tech">
+            </a>
+
+            <nav class="site-nav" aria-label="Navegação principal">
+                <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <ul class="nav-list">
+                    <li><a href="#top">Início</a></li>
+                    <li><a href="#quem-somos">Quem somos</a></li>
+                    <li><a href="#metodologia">Metodologia</a></li>
+                    <li><a href="#niveis">Planos</a></li>
+                    <li><a href="#aplicar">Contato</a></li>
+                </ul>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="theme-toggle" type="button" aria-label="Alternar tema">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
+                    <a class="btn btn-primary header-cta" href="diagnostico.html">Iniciar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Estrutura antes de escala</p>
+
+                    <h1 class="hero-headline" data-hero-typing>
+                        <span class="hero-line hero-line-1 hero-typed" data-type="Crescimento não é sorte."></span>
+                        <span class="hero-line hero-line-2">
+                            <span class="hero-typed" data-type="É "></span><span class="text-gradient hero-typed" data-type="estrutura"></span><span class="hero-typed" data-type="."></span>
+                        </span>
+                    </h1>
+
+                    <p class="hero-subhead">Organizamos site, processos, integrações e dados para transformar seu digital em um sistema previsível de crescimento.</p>
+
+                    <div class="hero-actions" role="group" aria-label="Ações principais">
+                        <a class="btn hero-btn-primary" href="diagnostico.html"><i class="fas fa-arrow-right" aria-hidden="true"></i><span>Solicitar Diagnóstico</span></a>
+                        <a class="btn hero-btn-secondary" href="#metodo"><i class="fas fa-compass" aria-hidden="true"></i><span>Entender o Método</span></a>
+                    </div>
+
+                    <p class="hero-note"><i class="fas fa-circle-info" aria-hidden="true"></i><span>Atendimento limitado para manter alto padrão de execução.</span></p>
+
+                    <div class="trust-row" aria-label="Sinais de confiabilidade">
+                        <div class="trust-item"><i class="fas fa-layer-group" aria-hidden="true"></i><span>Organização</span></div>
+                        <div class="trust-item"><i class="fas fa-diagram-project" aria-hidden="true"></i><span>Integração</span></div>
+                        <div class="trust-item"><i class="fas fa-chart-simple" aria-hidden="true"></i><span>Dados</span></div>
+                    </div>
+                </div>
+
+                <aside class="hero-panel" aria-label="Antes e depois">
+                    <div class="compare-card">
+                        <div class="compare-head">
+                            <p class="compare-kicker">Antes / Depois</p>
+                            <h2 class="compare-title">Estrutura muda o jogo</h2>
+                        </div>
+
+                        <div class="compare-grid" role="list">
+                            <div class="compare-col" role="listitem">
+                                <p class="compare-label">ANTES</p>
+                                <ul class="compare-list compare-list-before">
+                                    <li><i class="fas fa-triangle-exclamation" aria-hidden="true"></i><span>Improviso</span></li>
+                                    <li><i class="fas fa-hand" aria-hidden="true"></i><span>Processos manuais</span></li>
+                                    <li><i class="fas fa-link-slash" aria-hidden="true"></i><span>Fornecedores desconectados</span></li>
+                                    <li><i class="fas fa-bullhorn" aria-hidden="true"></i><span>Marketing isolado</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="compare-col" role="listitem">
+                                <p class="compare-label">DEPOIS</p>
+                                <ul class="compare-list compare-list-after">
+                                    <li><i class="fas fa-circle-nodes" aria-hidden="true"></i><span>Sistema integrado</span></li>
+                                    <li><i class="fas fa-database" aria-hidden="true"></i><span>Dados centralizados</span></li>
+                                    <li><i class="fas fa-diagram-project" aria-hidden="true"></i><span>Operação organizada</span></li>
+                                    <li><i class="fas fa-chart-line" aria-hidden="true"></i><span>Crescimento previsível</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="quem-somos" class="quem-somos">
+            <div class="container">
+                <div class="quem-somos-head">
+                    <h2>Não somos agência.<br>Somos estrutura.</h2>
+                    <p>A Krin.tech nasce para organizar o digital de empresas que querem crescer com previsibilidade — integrando sistemas, processos e dados em uma única estrutura estratégica.</p>
+                </div>
+
+                <div class="quem-somos-grid" role="list">
+                    <article class="quem-somos-card" role="listitem">
+                        <h3>Estrutura</h3>
+                        <p>Organizamos base digital antes de pensar em escala.</p>
+                    </article>
+                    <article class="quem-somos-card" role="listitem">
+                        <h3>Integração</h3>
+                        <p>Conectamos sistemas e eliminamos dependência de múltiplos fornecedores.</p>
+                    </article>
+                    <article class="quem-somos-card" role="listitem">
+                        <h3>Previsibilidade</h3>
+                        <p>Transformamos crescimento em processo, não em esforço isolado.</p>
+                    </article>
+                </div>
+
+                <p class="quem-somos-foot">Empresas desorganizadas sobrevivem no improviso.<br>Empresas estruturadas crescem com controle.</p>
+            </div>
+        </section>
+
+        <section id="metodologia" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Crescimento sem estrutura gera caos.</h2>
+                    <p>Empresas tentam escalar marketing antes de organizar operação, dados e processos.<br>O resultado é crescimento instável, retrabalho constante e dependência de terceiros.</p>
+                </div>
+
+                <ul class="pain-grid" role="list">
+                    <li class="pain">
+                        <h3>Vendas imprevisíveis</h3>
+                        <p>Sem controle real sobre origem, conversão e retenção.</p>
+                    </li>
+                    <li class="pain">
+                        <h3>Site que não converte</h3>
+                        <p>Presença digital sem estratégia ou estrutura de funil.</p>
+                    </li>
+                    <li class="pain">
+                        <h3>Processos manuais</h3>
+                        <p>Tempo desperdiçado em tarefas repetitivas e desalinhadas.</p>
+                    </li>
+                    <li class="pain">
+                        <h3>Falta de dados</h3>
+                        <p>Decisões baseadas em achismo e não em indicadores.</p>
+                    </li>
+                    <li class="pain">
+                        <h3>Dependência de múltiplos fornecedores</h3>
+                        <p>Operação fragmentada, sem visão integrada do negócio.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="metodo" class="section section-muted">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Estrutura antes da escala.</h2>
+                    <p>Organizamos base, processos e sistemas antes de falar em crescimento.<br>Sem improviso. Sem achismo. Sem ruído operacional.</p>
+                </div>
+
+                <div class="steps">
+                    <article class="step">
+                        <div class="step-top">
+                            <span class="step-num">01</span>
+                            <i class="fas fa-compass" aria-hidden="true"></i>
+                        </div>
+                        <h3>Diagnóstico Estratégico</h3>
+                        <p>Mapeamos operação, funil, oferta e gargalos.<br>Clareza antes de qualquer execução.</p>
+                    </article>
+                    <article class="step">
+                        <div class="step-top">
+                            <span class="step-num">02</span>
+                            <i class="fas fa-sitemap" aria-hidden="true"></i>
+                        </div>
+                        <h3>Organização Digital</h3>
+                        <p>Estruturamos presença, jornada e processos para eliminar retrabalho e desalinhamento.</p>
+                    </article>
+                    <article class="step">
+                        <div class="step-top">
+                            <span class="step-num">03</span>
+                            <i class="fas fa-sliders" aria-hidden="true"></i>
+                        </div>
+                        <h3>Implementação de Sistemas</h3>
+                        <p>Automatizamos rotinas, integramos ferramentas e centralizamos dados.</p>
+                    </article>
+                    <article class="step">
+                        <div class="step-top">
+                            <span class="step-num">04</span>
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <h3>Crescimento Orientado por Dados</h3>
+                        <p>Metas, acompanhamento e decisões baseadas em indicadores reais.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="niveis" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Escolha o nível de estrutura que seu negócio exige.</h2>
+                    <p>Você não contrata tarefas isoladas. Você implementa uma base sólida para crescer com previsibilidade, controle e escala.</p>
+                </div>
+
+                <div class="tiers">
+                    <article class="tier tier-start">
+                        <p class="tier-label"><span class="tier-icon" aria-hidden="true"><i class="fas fa-shield-halved"></i></span><span>KRIN START</span></p>
+                        <h3>Estrutura Fundamental</h3>
+                        <p class="tier-desc">Para empresas que precisam organizar a base e parar de perder dinheiro com desorganização operacional.</p>
+                        <ul class="tier-list" role="list">
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Clareza de posicionamento e jornada</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Organização da presença digital</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Padronização mínima de processos</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Base pronta para crescimento estruturado</span></li>
+                        </ul>
+                        <a class="btn btn-secondary tier-cta" href="diagnostico.html?interesse=KRIN%20START" data-tier="KRIN START">Solicitar Diagnóstico</a>
+                    </article>
+
+                    <article class="tier tier-featured tier-grow">
+                        <div class="badge">Mais recomendado</div>
+                        <p class="tier-label"><span class="tier-icon" aria-hidden="true"><i class="fas fa-crown"></i></span><span>KRIN GROW</span></p>
+                        <h3>Crescimento Estruturado</h3>
+                        <p class="tier-desc">Para empresas que querem transformar marketing e vendas em um sistema previsível e orientado por dados.</p>
+                        <ul class="tier-list" role="list">
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Funil integrado à operação</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Indicadores e rituais de gestão</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Integrações e automações estratégicas</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Governança mínima de dados</span></li>
+                        </ul>
+                        <a class="btn btn-primary tier-cta" href="diagnostico.html?interesse=KRIN%20GROW" data-tier="KRIN GROW">Solicitar Diagnóstico</a>
+                    </article>
+
+                    <article class="tier tier-scale">
+                        <p class="tier-label"><span class="tier-icon" aria-hidden="true"><i class="fas fa-gem"></i></span><span>KRIN SCALE</span></p>
+                        <h3>Expansão e Integração Total</h3>
+                        <p class="tier-desc">Para empresas que precisam consolidar sistemas, equipes e dados em uma operação escalável e blindada.</p>
+                        <ul class="tier-list" role="list">
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Integração completa entre ferramentas</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Governança, padrões e documentação</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Estrutura orientada por métricas</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i><span>Plano de expansão com controle operacional</span></li>
+                        </ul>
+                        <a class="btn btn-secondary tier-cta tier-cta-scale" href="diagnostico.html?interesse=KRIN%20SCALE" data-tier="KRIN SCALE">Solicitar Diagnóstico</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultados" class="section section-muted">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Sem estrutura, não existe crescimento sustentável.</h2>
+                    <p>Quando o digital deixa de ser improviso e vira operação integrada, o crescimento deixa de oscilar e passa a ser previsível.</p>
+                </div>
+
+                <div class="results">
+                    <article class="result">
+                        <h3>Previsibilidade Comercial</h3>
+                        <p>Geração, qualificação e acompanhamento organizados.<br>Pipeline claro, responsabilidades definidas e rotina operacional.</p>
+                        <div class="result-tags">
+                            <span>Pipeline</span><span>Rotina</span><span>Gestão</span>
+                        </div>
+                    </article>
+                    <article class="result">
+                        <h3>Operação sem retrabalho</h3>
+                        <p>Fluxos conectados, integrações bem definidas e redução de tarefas manuais que travam crescimento.</p>
+                        <div class="result-tags">
+                            <span>Processos</span><span>Integração</span><span>Padronização</span>
+                        </div>
+                    </article>
+                    <article class="result">
+                        <h3>Decisão baseada em indicadores</h3>
+                        <p>Dados organizados, métricas acompanhadas e decisões estratégicas orientadas por números — não por suposição.</p>
+                        <div class="result-tags">
+                            <span>KPI</span><span>Dashboards</span><span>Performance</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="autoridade" class="section">
+            <div class="container">
+                <div class="authority">
+                    <div class="authority-copy">
+                        <h2>Estrutura é estratégia aplicada.</h2>
+                        <p>Não vendemos um site.<br>Não vendemos anúncios.<br>Construímos a base operacional que sustenta marketing, vendas e crescimento.</p>
+                    </div>
+                    <ul class="authority-list" role="list">
+                        <li>
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                            <div class="authority-item-copy">
+                                <strong>Visão estratégica</strong>
+                                <p>Clareza sobre direção, metas e prioridades.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-folder-tree" aria-hidden="true"></i>
+                            <div class="authority-item-copy">
+                                <strong>Foco em organização</strong>
+                                <p>Processos definidos antes da escala.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-plug" aria-hidden="true"></i>
+                            <div class="authority-item-copy">
+                                <strong>Integração de sistemas</strong>
+                                <p>Ferramentas conectadas, dados centralizados.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-bullseye" aria-hidden="true"></i>
+                            <div class="authority-item-copy">
+                                <strong>Execução orientada a resultado</strong>
+                                <p>Acompanhamento contínuo e ajustes estratégicos.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="aplicar" class="section section-cta">
+            <div class="container">
+                <div class="cta-box">
+                    <div class="cta-copy">
+                        <h2>Solicite um Diagnóstico Estratégico Personalizado</h2>
+                        <p>Analisamos sua operação digital, identificamos gargalos estruturais e direcionamos o próximo passo com clareza estratégica.</p>
+                    </div>
+
+                    <form action="https://formsubmit.co/adm@krin.tech" method="POST" class="diagnostico-form" id="diagnostico-form">
+                        <input type="hidden" name="_subject" value="Novo Diagnóstico Estratégico - KRIN">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="sucesso.html">
+
+                        <div class="form-grid">
+                            <label>
+                                <span>Nome</span>
+                                <input name="nome" type="text" placeholder="Seu nome completo" required>
+                            </label>
+                            <label>
+                                <span>Empresa</span>
+                                <input name="empresa" type="text" placeholder="Nome da empresa ou projeto" required>
+                            </label>
+                            <label>
+                                <span>WhatsApp</span>
+                                <input name="whatsapp" type="tel" inputmode="tel" placeholder="(DDD) 9XXXX-XXXX" required>
+                            </label>
+                            <label>
+                                <span>Faturamento mensal atual</span>
+                                <select name="faturamento" required>
+                                    <option value="">Selecione</option>
+                                    <option>Até R$ 20 mil</option>
+                                    <option>R$ 20 mil a R$ 50 mil</option>
+                                    <option>R$ 50 mil a R$ 100 mil</option>
+                                    <option>Acima de R$ 100 mil</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>Qual estrutura você deseja implementar?</span>
+                                <select name="interesse" required>
+                                    <option value="KRIN START">KRIN START – Estrutura Base</option>
+                                    <option value="KRIN GROW" selected>KRIN GROW – Crescimento Estruturado</option>
+                                    <option value="KRIN SCALE">KRIN SCALE – Expansão e Integração</option>
+                                </select>
+                            </label>
+                            <label class="full">
+                                <span>Qual é o principal desafio que está limitando seu crescimento?</span>
+                                <textarea name="desafio" rows="6" placeholder="Ex: vendas inconsistentes, ausência de processos, dependência de indicação, retrabalho, falta de métricas..." required></textarea>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary diagnostico-submit" type="submit">Receber diagnóstico estratégico</button>
+                            <p class="fine">Entraremos em contato com uma análise inicial antes da conversa.</p>
+                            <p class="fine">Seus dados são utilizados exclusivamente para contato estratégico. Não enviamos spam.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container final-cta-inner">
+                <div class="final-cta-copy">
+                    <h2>Crescimento não é sorte. É estrutura aplicada.</h2>
+                    <p>Se sua operação ainda depende de improviso, o crescimento continuará instável.</p>
+                </div>
+                <div class="final-cta-action">
+                    <a class="btn btn-primary final-cta-btn" href="diagnostico.html">Iniciar diagnóstico estratégico</a>
+                    <p>Primeiro passo para estruturar marketing, vendas e operação.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="image/KRIN TECH LOGO.png" alt="Krin.tech">
+                <p>Estruturamos operações digitais com processos claros, métricas definidas e execução orientada a crescimento previsível.</p>
+                <p class="footer-brand-note">Marketing, vendas e operação integrados em uma única estrutura.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#quem-somos">Estrutura</a>
+                <a href="#metodo">Método</a>
+                <a href="#aplicar">Diagnóstico</a>
+            </div>
+            <div class="footer-legal">
+                <span>© KRIN TECH</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

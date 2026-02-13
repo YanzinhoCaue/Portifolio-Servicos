@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Estratégico | Krin.tech</title>
+    <meta name="description" content="Formulário estratégico da Krin.tech para diagnóstico da sua operação digital.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="image/KRIN TECH LOGO favicon.png" type="image/x-icon">
+</head>
+<body>
+    <main class="diagnostico-page">
+        <section class="section section-cta diagnostico-standalone">
+            <div class="container">
+                <div class="cta-box">
+                    <div class="cta-copy diagnostico-head">
+                        <p class="eyebrow">Diagnóstico estratégico</p>
+                        <h1>Diagnóstico da sua operação digital</h1>
+                        <p>Preencha as informações abaixo para analisarmos cenário, estrutura e prioridades da sua empresa com precisão estratégica.</p>
+                    </div>
+
+                    <form action="https://formsubmit.co/adm@krin.tech" method="POST" class="diagnostico-form" id="diagnostico-form-page">
+                        <input type="hidden" name="_subject" value="Novo Diagnóstico Estratégico - KRIN">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="sucesso.html">
+
+                        <div class="form-grid">
+                            <label>
+                                <span>Nome</span>
+                                <input type="text" name="nome" required placeholder="Seu nome completo">
+                            </label>
+                            <label>
+                                <span>Empresa</span>
+                                <input type="text" name="empresa" required placeholder="Nome da empresa ou projeto">
+                            </label>
+                            <label>
+                                <span>WhatsApp</span>
+                                <input type="tel" name="whatsapp" required placeholder="(DDD) 9XXXX-XXXX">
+                            </label>
+                            <label>
+                                <span>E-mail corporativo</span>
+                                <input type="email" name="email" required placeholder="voce@empresa.com.br">
+                            </label>
+                            <label>
+                                <span>Segmento</span>
+                                <input type="text" name="segmento" required placeholder="Ex.: serviços B2B, indústria, varejo...">
+                            </label>
+                            <label>
+                                <span>Faturamento mensal atual</span>
+                                <select name="faturamento" required>
+                                    <option value="">Selecione</option>
+                                    <option>Até R$ 20 mil</option>
+                                    <option>R$ 20 mil a R$ 50 mil</option>
+                                    <option>R$ 50 mil a R$ 100 mil</option>
+                                    <option>Acima de R$ 100 mil</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>Estrutura desejada</span>
+                                <select name="interesse" required>
+                                    <option value="KRIN START">KRIN START – Estrutura Fundamental</option>
+                                    <option value="KRIN GROW" selected>KRIN GROW – Crescimento Estruturado</option>
+                                    <option value="KRIN SCALE">KRIN SCALE – Expansão e Integração Total</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>Meta principal para os próximos 90 dias</span>
+                                <input type="text" name="meta_90_dias" required placeholder="Ex.: aumentar conversão, estabilizar pipeline, reduzir retrabalho">
+                            </label>
+                            <label class="full">
+                                <span>Principal desafio que limita crescimento</span>
+                                <textarea name="desafio" rows="6" required placeholder="Descreva os principais gargalos: vendas inconsistentes, ausência de processos, retrabalho, dependência de indicação, falta de métricas..."></textarea>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary diagnostico-submit" type="submit">Enviar diagnóstico</button>
+                            <p class="fine">Ao enviar, você receberá retorno por e-mail e também abriremos uma mensagem formatada no WhatsApp para agilizar o atendimento.</p>
+                        </div>
+                    </form>
+
+                    <div class="diagnostico-back">
+                        <a href="home.html" class="btn btn-secondary">Voltar para a página principal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="diagnostico.js" defer></script>
+</body>
+</html>

@@ -1,250 +1,506 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- VARIABLES ---
-    const themeBtn = document.getElementById('theme-toggle');
-    const langBtn = document.getElementById('lang-btn');
-    const langOptions = document.querySelectorAll('[data-lang]');
     const html = document.documentElement;
-    
-    // --- TRANSLATION DATA ---
-    const translations = {
-        en: {
-            nav: { home: "Home", about: "About", solutions: "Expertise", contact: "Contact", cta: "WhatsApp Me", projects: "Projects" },
-            hero: { 
-                title: "BEYOND CODE.", subtitle: "DEFINING THE", highlight: "FUTURE", 
-                desc: "Bridging the gap between High-End Software and Physical Infrastructure. We provide Full-Stack Development, Farm Automation, and Technical Support.",
-                btn1: "Start Project", btn2: "Our Services"
-            },
-            solutions: {
-                title: "OUR EXPERTISE",
-                c1: { title: "Web Development", desc: "High-performance websites and applications using React.js, Next.js, and Modern CSS." },
-                c2: { title: "Network & Connectivity", desc: "Complete setup of Farm/Office Wi-Fi, VoIP systems, and Starlink integration for remote areas." },
-                c3: { title: "Security Systems", desc: "Installation and configuration of CCTV, IP Cameras, and remote monitoring systems." },
-                c4: { title: "Traffic Management", desc: "Solutions for traffic flow management and optimization with advanced technologies." },
-                c7: { title: "Business Analysis", desc: "Strategic consulting and in-depth data analysis for business growth." },
-                c8: { title: "System Analysis", desc: "Complete evaluation and optimization of systems for maximum operational efficiency." },
-                c9: { title: "Q&A Tester", desc: "Complete quality testing and validation of software and application features." },
-                c10: { title: "Programmer", desc: "Custom software and application development with best coding practices." },
-                c11: { title: "Audiovisual Production", desc: "Creation of high-quality visual content, videos and multimedia productions." },
-                c12: { title: "Art Designer", desc: "Creative design and development of visual identity for brands and projects." },
-                c13: { title: "Problem Solving", desc: "Rapid diagnosis and resolution of technical and operational issues." },
-                c14: { title: "Photography", desc: "Professional photography services for events, products and digital content." },
-                c15: { title: "Hardware Infrastructure", desc: "Planning, installation and complete maintenance of hardware infrastructure." }
-            },
-            innov: { title1: "THE HYBRID", title2: "WORKER", desc: "Krin Tech is not just a software house. We are hands-on problem solvers. From coding complex algorithms to fixing physical hardware on-site." },
-            projects: { 
-                title: "OUR PROJECTS", viewProject: "View Project", 
-                p1: { desc: "Complete digital menu system for restaurants with real-time order management and modern interface." },
-                traffic: { title: "Traffic Management", desc: "Strategic campaigns and ROI optimization for digital ads." },
-                business: { title: "Business Analysis", desc: "Market insights and data-driven decisions for growth." },
-                marketing: { title: "Marketing & Analytics", desc: "Complete digital marketing solutions with traffic management, conversion optimization, and detailed business analysis for strategic growth." },
-                artdesign: { title: "Art Design", desc: "Creative visual concepts and illustrations." },
-                branding: { title: "Brand Design", desc: "Complete visual identity and brand strategy." },
-                photography: { title: "Photography", desc: "Professional product and corporate photography." },
-                design: { title: "Design & Visual Identity", desc: "From concept to final product: art design, brand identity, and professional photography to elevate your visual presence." },
-                webdesign: { title: "Web Design", desc: "Modern and responsive interface design." },
-                programming: { title: "Programming", desc: "Full-stack development and custom solutions." },
-                cybersec: { title: "Cyber Security", desc: "Protection and vulnerability assessment." },
-                tech: { title: "Technology & Development", desc: "Complete web development solutions with modern design, robust programming, and security protocols to protect your digital assets." },
-                socialmedia: { title: "Social Media", desc: "Content strategy and community management." },
-                videoediting: { title: "Video Editing", desc: "Professional video production and editing." },
-                content: { title: "Content & Media", desc: "Engaging social media strategies and high-quality video production to amplify your brand's message and reach your audience." },
-                comingsoon: "Coming Soon",
-                benotified: "Be Notified"
-            },
-            cta: { title: "Have a project or problem?", highlight: "Let's Fix It.", desc: "Software or Hardware, we are ready.", btn: "Contact via WhatsApp" }
-        },
-        pt: {
-            nav: { home: "Início", about: "Sobre", solutions: "Serviços", contact: "Contato", cta: "WhatsApp", projects: "Projetos" },
-            hero: { 
-                title: "ALÉM DO CÓDIGO.", subtitle: "DEFININDO O", highlight: "FUTURO", 
-                desc: "A ponte entre Software de Alto Nível e Infraestrutura Física. Oferecemos Desenvolvimento Full-Stack, Automação Rural e Suporte Técnico.",
-                btn1: "Iniciar Projeto", btn2: "Nossos Serviços"
-            },
-            solutions: {
-                title: "NOSSA EXPERTISE",
-                c1: { title: "Desenvolvimento Web", desc: "Sites e aplicações de alta performance usando React.js, Next.js e CSS Moderno." },
-                c2: { title: "Redes & Conectividade", desc: "Configuração completa de Wi-Fi Rural/Escritório, VoIP e integração Starlink." },
-                c3: { title: "Sistemas de Segurança", desc: "Instalação e configuração de CFTV, Câmeras IP e sistemas de monitoramento remoto." },
-                c4: { title: "Gestão de Tráfego", desc: "Soluções de gerenciamento e otimização de fluxo de tráfego com tecnologias avançadas." },
-                c7: { title: "Análise de Negócios", desc: "Consultoria estratégica e análise profunda de dados para crescimento empresarial." },
-                c8: { title: "Análise de Sistemas", desc: "Avaliação completa e otimização de sistemas para máxima eficiência operacional." },
-                c9: { title: "Q&A Tester", desc: "Testes completos de qualidade e validação de funcionalidades em software e aplicações." },
-                c10: { title: "Programador", desc: "Desenvolvimento customizado de software e aplicações com as melhores práticas de codificação." },
-                c11: { title: "Produção de Audiovisuais", desc: "Criação de conteúdo visual de alta qualidade, vídeos e produções multimídia." },
-                c12: { title: "Art Designer", desc: "Design criativo e desenvolvimento de identidade visual para marcas e projetos." },
-                c13: { title: "Solução de Problemas", desc: "Diagnóstico e resolução rápida de problemas técnicos e operacionais." },
-                c14: { title: "Fotografia", desc: "Serviços profissionais de fotografia para eventos, produtos e conteúdo digital." },
-                c15: { title: "Infraestrutura de Hardwares", desc: "Planejamento, instalação e manutenção completa de infraestrutura de hardwares." }
-            },
-            innov: { title1: "O PROFISSIONAL", title2: "HÍBRIDO", desc: "A Krin Tech não é apenas uma software house. Somos solucionadores de problemas. Desde codificar algoritmos complexos até consertar hardware no local." },
-            projects: { 
-                title: "NOSSOS PROJETOS", viewProject: "Ver Projeto", 
-                p1: { desc: "Sistema completo de cardápio digital para restaurantes com gestão de pedidos em tempo real e interface moderna." },
-                traffic: { title: "Gestão de Tráfego", desc: "Campanhas estratégicas e otimização de ROI em anúncios digitais." },
-                business: { title: "Análise de Negócios", desc: "Insights de mercado e decisões baseadas em dados para crescimento." },
-                marketing: { title: "Marketing & Análises", desc: "Soluções completas de marketing digital com gestão de tráfego, otimização de conversão e análise detalhada de negócios para crescimento estratégico." },
-                artdesign: { title: "Art Design", desc: "Conceitos visuais criativos e ilustrações." },
-                branding: { title: "Design de Marcas", desc: "Identidade visual completa e estratégia de marca." },
-                photography: { title: "Fotografia", desc: "Fotografia profissional de produtos e corporativa." },
-                design: { title: "Design & Identidade Visual", desc: "Do conceito ao produto final: art design, identidade de marca e fotografia profissional para elevar sua presença visual." },
-                webdesign: { title: "Web Design", desc: "Design de interface moderno e responsivo." },
-                programming: { title: "Programação", desc: "Desenvolvimento full-stack e soluções personalizadas." },
-                cybersec: { title: "Segurança Cibernética", desc: "Proteção e avaliação de vulnerabilidades." },
-                tech: { title: "Tecnologia & Desenvolvimento", desc: "Soluções completas de desenvolvimento web com design moderno, programação robusta e protocolos de segurança para proteger seus ativos digitais." },
-                socialmedia: { title: "Redes Sociais", desc: "Estratégia de conteúdo e gestão de comunidade." },
-                videoediting: { title: "Edição de Vídeo", desc: "Produção e edição profissional de vídeos." },
-                content: { title: "Conteúdo & Mídia", desc: "Estratégias envolventes de mídia social e produção de vídeo de alta qualidade para amplificar a mensagem da sua marca e alcançar seu público." },
-                comingsoon: "Em Breve",
-                benotified: "Seja Notificado"
-            },
-            cta: { title: "Tem um projeto ou problema?", highlight: "Vamos Resolver.", desc: "Software ou Hardware, estamos prontos.", btn: "Chamar no WhatsApp" }
-        },
-        es: {
-            nav: { home: "Inicio", about: "Sobre", solutions: "Servicios", contact: "Contacto", cta: "WhatsApp", projects: "Proyectos" },
-            hero: { title: "MÁS ALLÁ DEL CÓDIGO.", subtitle: "DEFINIENDO EL", highlight: "FUTURO", desc: "El puente entre Software de Alto Nivel e Infraestructura Física. Desarrollo Full-Stack y Soporte Técnico.", btn1: "Iniciar Proyecto", btn2: "Servicios" },
-            solutions: { title: "NUESTRA EXPERIENCIA", c1: { title: "Desarrollo Web", desc: "Sitios de alto rendimiento con React.js." }, c2: { title: "Redes y Conectividad", desc: "Configuración de Wi-Fi y Starlink." }, c3: { title: "Seguridad", desc: "Cámaras IP y monitoreo." }, c4: { title: "Gestión de Tráfico", desc: "Soluciones avanzadas de gestión de tráfico." }, c7: { title: "Análisis de Negocios", desc: "Consultoría y análisis de datos." }, c8: { title: "Análisis de Sistemas", desc: "Evaluación y optimización de sistemas." }, c9: { title: "Q&A Tester", desc: "Pruebas de calidad completas." }, c10: { title: "Programador", desc: "Desarrollo personalizado de software." }, c11: { title: "Producción Audiovisual", desc: "Contenido visual y producción multimedia." }, c12: { title: "Diseñador de Arte", desc: "Diseño creativo e identidad visual." }, c13: { title: "Solución de Problemas", desc: "Diagnóstico y resolución rápida." }, c14: { title: "Fotografía", desc: "Servicios fotográficos profesionales." }, c15: { title: "Infraestructura de Hardware", desc: "Planificación e instalación de hardware." } },
-            innov: { title1: "EL TRABAJADOR", title2: "HÍBRIDO", desc: "Solucionamos problemas reales. Desde el código hasta el hardware." },
-            projects: { 
-                title: "NUESTROS PROYECTOS", viewProject: "Ver Proyecto", 
-                p1: { desc: "Sistema completo de menú digital para restaurantes con gestión de pedidos en tiempo real e interfaz moderna." },
-                traffic: { title: "Gestión de Tráfico", desc: "Campañas estratégicas y optimización de ROI en anuncios digitales." },
-                business: { title: "Análisis de Negocios", desc: "Insights de mercado y decisiones basadas en datos." },
-                marketing: { title: "Marketing y Análisis", desc: "Soluciones completas de marketing digital con gestión de tráfico, optimización de conversión y análisis detallado de negocios." },
-                artdesign: { title: "Diseño Artístico", desc: "Conceptos visuales creativos e ilustraciones." },
-                branding: { title: "Diseño de Marca", desc: "Identidad visual completa y estrategia de marca." },
-                photography: { title: "Fotografía", desc: "Fotografía profesional de productos y corporativa." },
-                design: { title: "Diseño e Identidad Visual", desc: "Del concepto al producto final: diseño artístico, identidad de marca y fotografía profesional." },
-                webdesign: { title: "Diseño Web", desc: "Diseño de interfaz moderno y responsivo." },
-                programming: { title: "Programación", desc: "Desarrollo full-stack y soluciones personalizadas." },
-                cybersec: { title: "Seguridad Cibernética", desc: "Protección y evaluación de vulnerabilidades." },
-                tech: { title: "Tecnología y Desarrollo", desc: "Soluciones completas de desarrollo web con diseño moderno, programación robusta y protocolos de seguridad." },
-                socialmedia: { title: "Redes Sociales", desc: "Estrategia de contenido y gestión de comunidad." },
-                videoediting: { title: "Edición de Video", desc: "Producción y edición profesional de videos." },
-                content: { title: "Contenido y Medios", desc: "Estrategias atractivas de redes sociales y producción de video de alta calidad." },
-                comingsoon: "Próximamente",
-                benotified: "Sé Notificado"
-            },
-            cta: { title: "¿Tienes un proyecto?", highlight: "Resolvámoslo.", desc: "Software o Hardware.", btn: "WhatsApp" }
-        },
-        fr: {
-            nav: { home: "Accueil", about: "À Propos", solutions: "Services", contact: "Contact", cta: "WhatsApp", projects: "Projets" },
-            hero: { title: "AU-DELÀ DU CODE.", subtitle: "DÉFINIR LE", highlight: "FUTUR", desc: "Le pont entre le logiciel et l'infrastructure physique. Développement Full-Stack et Support Technique.", btn1: "Lancer Projet", btn2: "Services" },
-            solutions: { title: "NOTRE EXPERTISE", c1: { title: "Dév Web", desc: "Sites performants avec React.js." }, c2: { title: "Réseaux", desc: "Configuration Wi-Fi et Starlink." }, c3: { title: "Sécurité", desc: "Caméras IP et surveillance." }, c4: { title: "Gestion du Trafic", desc: "Solutions avancées de gestion." }, c7: { title: "Analyse d'Affaires", desc: "Consulting et analyse données." }, c8: { title: "Analyse Systèmes", desc: "Évaluation et optimisation." }, c9: { title: "Q&A Tester", desc: "Tests de qualité complets." }, c10: { title: "Programmeur", desc: "Développement logiciel sur mesure." }, c11: { title: "Production Audiovisuelle", desc: "Contenu visuel et multimedia." }, c12: { title: "Créatif Design", desc: "Design créatif et identité visuelle." }, c13: { title: "Résolution Problèmes", desc: "Diagnostic et résolution rapide." }, c14: { title: "Photographie", desc: "Services photographiques pros." }, c15: { title: "Infrastructure Hardware", desc: "Planification et installation hardware." } },
-            innov: { title1: "LE TRAVAILLEUR", title2: "HYBRIDE", desc: "Nous résolvons des problèmes réels. Du code au matériel." },
-            projects: { 
-                title: "NOS PROJETS", viewProject: "Voir le Projet", 
-                p1: { desc: "Système de menu numérique complet pour restaurants avec gestion des commandes en temps réel." },
-                traffic: { title: "Gestion du Trafic", desc: "Campagnes stratégiques et optimisation du ROI." },
-                business: { title: "Analyse d'Affaires", desc: "Insights marché et décisions basées sur les données." },
-                marketing: { title: "Marketing et Analyses", desc: "Solutions complètes de marketing digital avec gestion du trafic et analyse détaillée." },
-                artdesign: { title: "Design Artistique", desc: "Concepts visuels créatifs et illustrations." },
-                branding: { title: "Design de Marque", desc: "Identité visuelle complète et stratégie de marque." },
-                photography: { title: "Photographie", desc: "Photographie professionnelle de produits et d'entreprise." },
-                design: { title: "Design et Identité Visuelle", desc: "Du concept au produit final: design artistique, identité de marque et photographie professionnelle." },
-                webdesign: { title: "Web Design", desc: "Design d'interface moderne et responsive." },
-                programming: { title: "Programmation", desc: "Développement full-stack et solutions personnalisées." },
-                cybersec: { title: "Cybersécurité", desc: "Protection et évaluation des vulnérabilités." },
-                tech: { title: "Technologie et Développement", desc: "Solutions complètes de développement web avec design moderne et protocoles de sécurité." },
-                socialmedia: { title: "Réseaux Sociaux", desc: "Stratégie de contenu et gestion de communauté." },
-                videoediting: { title: "Montage Vidéo", desc: "Production et montage vidéo professionnels." },
-                content: { title: "Contenu et Médias", desc: "Stratégies engageantes de médias sociaux et production vidéo de haute qualité." },
-                comingsoon: "À Venir",
-                benotified: "Soyez Notifié"
-            },
-            cta: { title: "Avez-vous un projet?", highlight: "Réparons-le.", desc: "Logiciel ou Matériel.", btn: "WhatsApp" }
+
+    // ===== Typing na HERO (1x ao abrir) =====
+    (function runHeroTypingOnce() {
+        const headline = document.querySelector('.hero-headline[data-hero-typing]');
+        if (!headline) return;
+
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const targets = Array.from(headline.querySelectorAll('[data-type]'));
+        if (targets.length === 0) return;
+
+        if (reduceMotion) {
+            targets.forEach((el) => (el.textContent = el.getAttribute('data-type') || ''));
+            return;
         }
+
+        targets.forEach((el) => (el.textContent = ''));
+
+        let index = 0;
+        let charIndex = 0;
+
+        const getDelay = (ch) => {
+            if (ch === '.' || ch === '!' || ch === '?') return 260;
+            if (ch === ',') return 140;
+            if (ch === ' ') return 18;
+            return 22;
+        };
+
+        const step = () => {
+            const el = targets[index];
+            const full = el.getAttribute('data-type') || '';
+
+            targets.forEach((t) => t.classList.remove('typing-active'));
+            el.classList.add('typing-active');
+
+            if (charIndex < full.length) {
+                const ch = full.charAt(charIndex);
+                el.textContent += ch;
+                charIndex++;
+                window.setTimeout(step, getDelay(ch));
+                return;
+            }
+
+            // próximo bloco
+            el.classList.remove('typing-active');
+            index++;
+            charIndex = 0;
+
+            if (index < targets.length) {
+                window.setTimeout(step, 120);
+                return;
+            }
+
+            // terminou
+        };
+
+        window.setTimeout(step, 120);
+    })();
+
+    // ===== HUD Glitch realtime (menu + botões) =====
+    (function runHudGlitchRealtime() {
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) return;
+
+        const targets = Array.from(document.querySelectorAll('.nav-list a, .btn, .icon-btn'));
+        if (targets.length === 0) return;
+
+        targets.forEach((el) => el.classList.add('hud-glitch-target'));
+
+        let glitchTimer = null;
+        let syncFlashTimer = null;
+        const root = document.documentElement;
+        const signalEl = document.createElement('div');
+        signalEl.className = 'hud-signal';
+        signalEl.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(signalEl);
+        let signalTimer = null;
+
+        const pulseGlitch = (el, duration = 120) => {
+            if (!el) return;
+            el.classList.remove('is-glitching');
+            void el.offsetWidth;
+            el.classList.add('is-glitching');
+            window.setTimeout(() => {
+                el.classList.remove('is-glitching');
+            }, duration);
+        };
+
+        const scheduleGlitch = () => {
+            const nextIn = 260 + Math.random() * 1200;
+            glitchTimer = window.setTimeout(() => {
+                if (document.hidden) {
+                    scheduleGlitch();
+                    return;
+                }
+
+                const target = targets[Math.floor(Math.random() * targets.length)];
+                pulseGlitch(target, 95 + Math.random() * 120);
+                scheduleGlitch();
+            }, nextIn);
+        };
+
+        scheduleGlitch();
+
+        const pulseHudFromMeteor = (strength = 'medium') => {
+            const level = strength === 'strong' || strength === 'weak' ? strength : 'medium';
+            const config = level === 'strong'
+                ? { burstCount: 6, baseDuration: 185, flashDuration: 260 }
+                : level === 'weak'
+                    ? { burstCount: 2, baseDuration: 105, flashDuration: 140 }
+                    : { burstCount: 4, baseDuration: 145, flashDuration: 200 };
+            const label = level === 'strong' ? 'SIGNAL: STRONG' : level === 'weak' ? 'SIGNAL: WEAK' : 'SIGNAL: MEDIUM';
+
+            signalEl.textContent = label;
+            signalEl.classList.remove('level-weak', 'level-medium', 'level-strong');
+            signalEl.classList.add(`level-${level}`, 'show');
+
+            if (signalTimer) window.clearTimeout(signalTimer);
+            signalTimer = window.setTimeout(() => {
+                signalEl.classList.remove('show');
+            }, level === 'strong' ? 720 : 520);
+
+            root.classList.remove('hud-space-sync', 'hud-space-sync--weak', 'hud-space-sync--medium', 'hud-space-sync--strong');
+            void root.offsetWidth;
+            root.classList.add(`hud-space-sync--${level}`);
+            root.classList.add('hud-space-sync');
+
+            if (syncFlashTimer) window.clearTimeout(syncFlashTimer);
+            syncFlashTimer = window.setTimeout(() => {
+                root.classList.remove('hud-space-sync', 'hud-space-sync--weak', 'hud-space-sync--medium', 'hud-space-sync--strong');
+            }, config.flashDuration);
+
+            for (let i = 0; i < config.burstCount; i++) {
+                const target = targets[Math.floor(Math.random() * targets.length)];
+                pulseGlitch(target, config.baseDuration + Math.random() * 95);
+            }
+        };
+
+        window.__krinHudSpacePulse = pulseHudFromMeteor;
+
+        document.addEventListener('visibilitychange', () => {
+            if (glitchTimer) window.clearTimeout(glitchTimer);
+            if (!document.hidden) scheduleGlitch();
+        });
+
+        targets.forEach((el) => {
+            el.addEventListener('mouseenter', () => pulseGlitch(el, 120));
+            el.addEventListener('focus', () => pulseGlitch(el, 120));
+        });
+    })();
+
+    // animações da seção Antes/Depois simplificadas no CSS para evitar inconsistência
+
+    // ===== Universo (estrelas + estrelas cadentes) =====
+    const spaceCanvas = document.getElementById('space-canvas');
+    const spaceCtx = spaceCanvas && spaceCanvas.getContext ? spaceCanvas.getContext('2d') : null;
+
+    const spaceState = {
+        w: 0,
+        h: 0,
+        dpr: 1,
+        stars: [],
+        meteors: [],
+        nextMeteorAt: 0,
+        lastTs: 0,
     };
 
-    // --- THEME & LANG LOGIC ---
-    function setTheme(theme) {
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem('krin-theme', theme);
-        const icon = themeBtn.querySelector('i');
-        icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-    }
-    const savedTheme = localStorage.getItem('krin-theme') || 'dark';
-    setTheme(savedTheme);
-    themeBtn.addEventListener('click', () => setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+    function resizeSpace() {
+        if (!spaceCanvas || !spaceCtx) return;
 
-    function setLanguage(lang) {
-        localStorage.setItem('krin-lang', lang);
-        langBtn.innerHTML = `${lang.toUpperCase()} <i class="fas fa-chevron-down"></i>`;
-        const data = translations[lang];
-        document.querySelectorAll('[data-translate]').forEach(el => {
-            const keys = el.getAttribute('data-translate').split('.');
-            let val = data;
-            keys.forEach(k => val = val ? val[k] : null);
-            if (val) el.textContent = val;
+        const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        const w = Math.floor(window.innerWidth);
+        const h = Math.floor(window.innerHeight);
+
+        spaceState.w = w;
+        spaceState.h = h;
+        spaceState.dpr = dpr;
+
+        spaceCanvas.width = Math.floor(w * dpr);
+        spaceCanvas.height = Math.floor(h * dpr);
+        spaceCanvas.style.width = w + 'px';
+        spaceCanvas.style.height = h + 'px';
+
+        spaceCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        // densidade de estrelas baseada na área
+        const targetStars = Math.max(180, Math.min(560, Math.floor((w * h) / 7000)));
+        const stars = [];
+        for (let i = 0; i < targetStars; i++) {
+            const r = Math.random();
+            const radius = r < 0.82 ? 0.6 : r < 0.97 ? 1.0 : 1.6;
+            const depth = 0.25 + Math.random() * 0.95;
+            stars.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                radius,
+                depth,
+                vx: (Math.random() * 2 - 1) * 6 * depth,
+                vy: (8 + Math.random() * 18) * depth,
+                baseA: 0.25 + Math.random() * 0.65,
+                tw: 0.6 + Math.random() * 1.8,
+                phase: Math.random() * Math.PI * 2,
+            });
+        }
+        spaceState.stars = stars;
+
+        // agenda primeiro meteoro
+        spaceState.nextMeteorAt = performance.now() + (1800 + Math.random() * 3800);
+    }
+
+    function spawnMeteor(ts) {
+        const w = spaceState.w;
+        const h = spaceState.h;
+
+        // nasce fora da tela (topo) e sempre desce
+        const goLeft = Math.random() < 0.55;
+        const x = goLeft ? w + 80 : -80;
+        const y = -60 + Math.random() * (h * 0.28);
+        const speed = 1000 + Math.random() * 1100; // px/s
+        const angleDeg = goLeft
+            ? (140 + Math.random() * 18) // down-left
+            : (40 + Math.random() * 18);  // down-right
+        const angle = (Math.PI * angleDeg) / 180;
+
+        const vx = Math.cos(angle) * speed;
+        const vy = Math.sin(angle) * speed; // sin positivo = desce
+        const len = 140 + Math.random() * 160;
+        const energyScore = speed * len;
+
+        let meteorStrength = 'medium';
+        if (energyScore > 480000) meteorStrength = 'strong';
+        else if (energyScore < 300000) meteorStrength = 'weak';
+
+        spaceState.meteors.push({
+            x,
+            y,
+            vx,
+            vy,
+            len,
+            life: 0,
+            maxLife: 0.65 + Math.random() * 0.35,
+            bornAt: ts,
+            strength: meteorStrength,
+        });
+
+        if (typeof window.__krinHudSpacePulse === 'function') {
+            window.__krinHudSpacePulse(meteorStrength);
+        }
+
+        // próximo meteoro em alguns segundos
+        spaceState.nextMeteorAt = ts + (2200 + Math.random() * 5200);
+    }
+
+    function drawSpace(ts) {
+        if (!spaceCanvas || !spaceCtx) return;
+        if (document.hidden) {
+            spaceState.lastTs = ts;
+            requestAnimationFrame(drawSpace);
+            return;
+        }
+
+        const dt = Math.min(0.05, (ts - (spaceState.lastTs || ts)) / 1000);
+        spaceState.lastTs = ts;
+
+        const w = spaceState.w;
+        const h = spaceState.h;
+
+        spaceCtx.clearRect(0, 0, w, h);
+
+        // base escura
+        spaceCtx.fillStyle = '#05050a';
+        spaceCtx.fillRect(0, 0, w, h);
+
+        // nebulosa/supernova roxa + toque azul
+        const nebula1 = spaceCtx.createRadialGradient(w * 0.68, h * 0.34, 0, w * 0.68, h * 0.34, Math.max(w, h) * 0.65);
+        nebula1.addColorStop(0, 'rgba(139,92,246,0.20)');
+        nebula1.addColorStop(0.35, 'rgba(139,92,246,0.11)');
+        nebula1.addColorStop(1, 'rgba(139,92,246,0)');
+        spaceCtx.fillStyle = nebula1;
+        spaceCtx.fillRect(0, 0, w, h);
+
+        const nebula2 = spaceCtx.createRadialGradient(w * 0.22, h * 0.18, 0, w * 0.22, h * 0.18, Math.max(w, h) * 0.55);
+        nebula2.addColorStop(0, 'rgba(108,231,255,0.10)');
+        nebula2.addColorStop(0.4, 'rgba(108,231,255,0.05)');
+        nebula2.addColorStop(1, 'rgba(108,231,255,0)');
+        spaceCtx.fillStyle = nebula2;
+        spaceCtx.fillRect(0, 0, w, h);
+
+        // vinheta para profundidade
+        const vignette = spaceCtx.createRadialGradient(w * 0.5, h * 0.52, Math.min(w, h) * 0.18, w * 0.5, h * 0.52, Math.max(w, h) * 0.82);
+        vignette.addColorStop(0, 'rgba(0,0,0,0)');
+        vignette.addColorStop(1, 'rgba(0,0,0,0.62)');
+        spaceCtx.fillStyle = vignette;
+        spaceCtx.fillRect(0, 0, w, h);
+
+        // estrelas (movimento + twinkle)
+        for (const s of spaceState.stars) {
+            s.x += s.vx * dt;
+            s.y += s.vy * dt;
+
+            if (s.x < -10) s.x = w + 10;
+            if (s.x > w + 10) s.x = -10;
+            if (s.y > h + 10) s.y = -10;
+
+            const a = s.baseA * (0.70 + 0.30 * Math.sin(ts / 1000 * s.tw + s.phase));
+            spaceCtx.globalAlpha = a;
+            spaceCtx.fillStyle = 'rgba(255,255,255,1)';
+            spaceCtx.beginPath();
+            spaceCtx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+            spaceCtx.fill();
+        }
+        spaceCtx.globalAlpha = 1;
+
+        // meteoro ocasional
+        if (ts >= spaceState.nextMeteorAt && spaceState.meteors.length < 2) {
+            spawnMeteor(ts);
+        }
+
+        // desenha e atualiza meteoros
+        const nextMeteors = [];
+        for (const m of spaceState.meteors) {
+            m.life += dt;
+            m.x += m.vx * dt;
+            m.y += m.vy * dt;
+
+            const t = Math.min(1, m.life / m.maxLife);
+            const alpha = (t < 0.18 ? t / 0.18 : 1) * (t > 0.85 ? (1 - t) / 0.15 : 1);
+
+            // cauda
+            const nx = m.vx;
+            const ny = m.vy;
+            const nLen = Math.hypot(nx, ny) || 1;
+            const ux = nx / nLen;
+            const uy = ny / nLen;
+            const x2 = m.x - ux * m.len;
+            const y2 = m.y - uy * m.len;
+
+            const grad = spaceCtx.createLinearGradient(m.x, m.y, x2, y2);
+            grad.addColorStop(0, `rgba(255,255,255,${0.90 * alpha})`);
+            grad.addColorStop(0.35, `rgba(108,231,255,${0.55 * alpha})`);
+            grad.addColorStop(0.75, `rgba(139,92,246,${0.22 * alpha})`);
+            grad.addColorStop(1, 'rgba(0,0,0,0)');
+
+            spaceCtx.lineWidth = 2.2;
+            spaceCtx.lineCap = 'round';
+            spaceCtx.strokeStyle = grad;
+            spaceCtx.beginPath();
+            spaceCtx.moveTo(m.x, m.y);
+            spaceCtx.lineTo(x2, y2);
+            spaceCtx.stroke();
+
+            if (m.life < m.maxLife && m.x > -200 && m.y < h + 200) {
+                nextMeteors.push(m);
+            }
+        }
+        spaceState.meteors = nextMeteors;
+
+        requestAnimationFrame(drawSpace);
+    }
+
+    // ===== Tema =====
+    const THEME_KEY = 'krin-theme';
+    const themeBtn = document.getElementById('theme-toggle');
+
+    function applyTheme(theme) {
+        const next = theme === 'light' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem(THEME_KEY, next);
+
+        if (themeBtn) {
+            const icon = themeBtn.querySelector('i');
+            if (icon) icon.className = next === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+    }
+
+    applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme') || 'dark';
+            applyTheme(current === 'dark' ? 'light' : 'dark');
         });
     }
-    const savedLang = localStorage.getItem('krin-lang') || 'en';
-    setLanguage(savedLang);
-    langOptions.forEach(opt => opt.addEventListener('click', (e) => { e.preventDefault(); setLanguage(opt.getAttribute('data-lang')); }));
 
-    // --- ANIMATIONS ---
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); menuToggle.querySelector('i').classList.toggle('fa-bars'); menuToggle.querySelector('i').classList.toggle('fa-times'); });
-    
-    const canvas = document.getElementById('tech-canvas');
-    const ctx = canvas.getContext('2d');
-    let particlesArray = [];
-    const resizeCanvas = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; initParticles(); };
-    class Particle {
-        constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = Math.random() * 0.5 - 0.25; this.speedY = Math.random() * 0.5 - 0.25; }
-        update() { this.x += this.speedX; this.y += this.speedY; if (this.x > canvas.width || this.x < 0) this.speedX *= -1; if (this.y > canvas.height || this.y < 0) this.speedY *= -1; }
-        draw() { ctx.fillStyle = '#00E5FF'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+    // ===== Menu mobile =====
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    function setNavOpen(open) {
+        if (!navToggle || !navList) return;
+        navList.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+        const icon = navToggle.querySelector('i');
+        if (icon) {
+            icon.classList.toggle('fa-bars', !open);
+            icon.classList.toggle('fa-times', open);
+        }
     }
-    function initParticles() { particlesArray = []; const num = (canvas.width * canvas.height) / 10000; for (let i = 0; i < num; i++) particlesArray.push(new Particle()); }
-    function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particlesArray.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
-    window.addEventListener('resize', resizeCanvas); resizeCanvas(); animate();
 
-    const revealElements = document.querySelectorAll('.scroll-reveal');
-    window.addEventListener('scroll', () => {
-        const h = window.innerHeight;
-        revealElements.forEach(el => { if (el.getBoundingClientRect().top < h - 100) el.classList.add('active'); });
+    if (navToggle && navList) {
+        navToggle.addEventListener('click', () => {
+            setNavOpen(!navList.classList.contains('open'));
+        });
+
+        navList.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (!link) return;
+            if (window.matchMedia('(max-width: 760px)').matches) setNavOpen(false);
+        });
+    }
+
+    // ===== Link ativo do menu no scroll =====
+    (function runScrollSpy() {
+        const trackedLinks = Array.from(document.querySelectorAll('.nav-list a[href^="#"], .footer-links a[href^="#"]'));
+        if (trackedLinks.length === 0) return;
+
+        const sectionById = new Map();
+        trackedLinks.forEach((link) => {
+            const hash = link.getAttribute('href') || '';
+            const id = hash.replace('#', '').trim();
+            if (!id) return;
+            const section = document.getElementById(id);
+            if (section) sectionById.set(id, section);
+        });
+
+        if (sectionById.size === 0) return;
+
+        const setActiveById = (id) => {
+            trackedLinks.forEach((link) => {
+                const targetId = (link.getAttribute('href') || '').replace('#', '').trim();
+                link.classList.toggle('is-active', targetId === id);
+            });
+        };
+
+        let currentActiveId = '';
+        const observer = new IntersectionObserver(
+            (entries) => {
+                let bestEntry = null;
+                for (const entry of entries) {
+                    if (!entry.isIntersecting) continue;
+                    if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
+                        bestEntry = entry;
+                    }
+                }
+
+                if (!bestEntry) return;
+                const nextId = bestEntry.target.id;
+                if (!nextId || nextId === currentActiveId) return;
+                currentActiveId = nextId;
+                setActiveById(nextId);
+            },
+            {
+                root: null,
+                rootMargin: '-38% 0px -45% 0px',
+                threshold: [0.18, 0.32, 0.5, 0.7],
+            }
+        );
+
+        sectionById.forEach((section) => observer.observe(section));
+
+        trackedLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                const id = (link.getAttribute('href') || '').replace('#', '').trim();
+                if (!id) return;
+                currentActiveId = id;
+                setActiveById(id);
+            });
+        });
+
+        const initialFromHash = (window.location.hash || '').replace('#', '').trim();
+        if (initialFromHash && sectionById.has(initialFromHash)) {
+            currentActiveId = initialFromHash;
+            setActiveById(initialFromHash);
+            return;
+        }
+
+        const firstId = sectionById.keys().next().value;
+        if (firstId) {
+            currentActiveId = firstId;
+            setActiveById(firstId);
+        }
+    })();
+
+    // ===== Pré-seleção do nível (tiers) =====
+    const form = document.getElementById('diagnostico-form');
+    const interesseSelect = form ? form.querySelector('select[name="interesse"]') : null;
+
+    document.querySelectorAll('.tier-cta[data-tier]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const tier = btn.getAttribute('data-tier');
+            if (interesseSelect && tier) interesseSelect.value = tier;
+        });
     });
 
-    // --- CAROUSEL FUNCTIONALITY ---
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
-    let currentSlide = 0;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
+    if (spaceCanvas && spaceCtx) {
+        resizeSpace();
+        window.addEventListener('resize', () => {
+            // evita flood em resize
+            clearTimeout(window.__spaceResizeTimer);
+            window.__spaceResizeTimer = setTimeout(resizeSpace, 120);
         });
-        indicators.forEach((indicator, i) => {
-            indicator.classList.toggle('active', i === index);
-        });
+        requestAnimationFrame(drawSpace);
     }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-
-    indicators.forEach((indicator, i) => {
-        indicator.addEventListener('click', () => {
-            currentSlide = i;
-            showSlide(currentSlide);
-        });
-    });
-
-    // Initialize first slide
-    showSlide(0);
-
-    // Auto-play carousel (opcional - comente se não quiser)
-    // setInterval(nextSlide, 5000);
 });
